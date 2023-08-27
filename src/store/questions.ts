@@ -26,7 +26,7 @@ export const useQuestionsStore = create<QuestionsState>()(persist((set, get) => 
     selectAnswer: (questionId: number, answerIndex: number): boolean => {
       const { questions } = get()
       const newQuestions = structuredClone(questions)
-      const questionIndex = newQuestions.findIndex((question) => question.id === questionId)
+      const questionIndex = newQuestions.findIndex((question: Question) => question.id === questionId)
       const questionInfo = newQuestions[questionIndex]
 
       if (questionInfo.selectedAnswer !== undefined) return false
